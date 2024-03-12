@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config-app-1
+  namespace: staging
+data:
+  Version: "v1"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config-app-2
+  namespace: staging
+data:
+  Version: "v2"
+---
+

@@ -1,0 +1,17 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: api-test
+  namespace: staging
+spec:
+  host: api-test
+  subsets:
+    - name: v1
+      labels:
+        app: api-test
+        version: v1
+    - name: v2
+      labels:
+        app: api-test
+        version: v2

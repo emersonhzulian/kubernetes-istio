@@ -1,0 +1,19 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: api-test
+  namespace: staging
+spec:
+  hosts:
+    - api-test
+  http:
+    - route:
+        - destination:
+            host: api-test
+            subset: v1
+          weight: 100
+        - destination:
+            host: api-test
+            subset: v2
+          weight: 10

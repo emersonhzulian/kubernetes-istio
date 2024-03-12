@@ -1,0 +1,6 @@
+@canary_HostAddress = http://localhost:5178
+
+GET {{canary_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

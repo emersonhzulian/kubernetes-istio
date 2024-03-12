@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "uDfhYhJnBoi3WlTyCIZfbOXYxZrsI1BSQItT7OhDeEI=",
+  "Source": "canary",
+  "BasePath": "_content/canary",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

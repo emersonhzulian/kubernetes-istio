@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-test-v1
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-test
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: api-test
+        version: v1
+        istio: monitor
+    spec:
+      containers:
+        - name: api-test
+          image: docker.io/library/canary:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DOTNET_USE_POLLING_FILE_WATCHER
+              value: "true"
+            - name: ConfigurationFolder
+              value: /etc/sampleapi/v1
+          volumeMounts:
+            - name: apiconfig
+              mountPath: /etc/sampleapi/v1
+              readOnly: true
+          ports:
+            - name: http
+              containerPort: 8080
+      volumes:
+        - name: apiconfig
+          configMap:
+            name: my-config-app-1
+            optional: false
+            defaultMode: 0644
